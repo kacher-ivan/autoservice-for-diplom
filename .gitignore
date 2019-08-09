@@ -1,0 +1,10 @@
+*.jar
+/autoservice-app-web/build/
+/autoservice-ws-autoorder/build/
+
+/.idea/
+/.gradle/
+!/build.gradle
+!/settings.gradle
+!gradle-wrapper.jar
+

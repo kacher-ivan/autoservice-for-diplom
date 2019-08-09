@@ -1,0 +1,52 @@
+group "$applicationGroup"
+version "$applicationVersion"
+
+wrapper {
+    gradleVersion = '5.4'
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    dependencies {
+
+    }
+
+    configurations {
+        agent
+    }
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+
+    dependencies {
+        compileTestJava {
+            options.encoding = 'UTF-8'
+        }
+
+        testCompile group: 'junit',
+                    name: 'junit',
+                    version: "${junitVersion}"
+        compile group: 'com.google.code.gson',
+                name: 'gson',
+                version: "$gsonVersion"
+        compile group: 'log4j',
+                name: 'log4j',
+                version: "$log4jVersion"
+    }
+}
